@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>培训课程</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="js/func.js"></script>
+<script type="text/javascript" src="js/info.js"></script>
+<body style="background-color:#2e2e2e;">
+<div class="main">
+<div class="series"><img src="images/index_title.png" width="940" height="90" /></div>
+<div id="showpath" class="bg1"></div>
+<div id="leftmenu"> 
+<script type="text/javascript">
+	if(arrLeftMenu.length==5){
+	document.getElementById("leftmenu").className="leftmenu";
+	}
+	if(arrLeftMenu.length==4){
+	document.getElementById("leftmenu").className="leftmenuv8";
+	}
+</script>
+<dl>
+</dl>
+</div>
+<div class="maincnt" id="maincnt">
+<div class="videocnt" id="videocnt"></div>
+<div class="switchbut" id="switchbut"></div>
+</div>
+<div id="rightmenu">
+<script type="text/javascript">
+	if(arrLeftMenu.length==5){
+	document.getElementById("rightmenu").className="rightmenu";
+	}
+	if(arrLeftMenu.length==4){
+	document.getElementById("rightmenu").className="rightmenuv8";
+	}
+</script>
+<dl>
+</dl>
+</div>
+<div class="bg2"><img src="images/index_bg5.png"  width="940" height="33" /></div>
+</div>
+<script type="text/javascript">
+oDl1=document.getElementsByTagName("dl")[0];
+oDl2=document.getElementsByTagName("dl")[1];
+var arrLeftColumnName=new Array();
+var arrLeftFileName=new Array();
+for(i=0;i<arrLeftMenu.length;i++){
+	var sLeftColumnName=arrLeftMenu[i].split("-")[0];
+	var sLeftFileName=arrLeftMenu[i].split("-")[1];
+	arrLeftColumnName.push(sLeftColumnName);
+	arrLeftFileName.push(sLeftFileName);
+	}
+for(var i=0;i<arrLeftMenu.length;i++){
+	var j=i+1;
+	var oChildMenu=eval("arrLeftChildName"+j)
+	if(oChildMenu){
+		var strChildLi="";
+		var strChildDiv=""
+		for(var k=0; k<oChildMenu.length; k++){
+			var m=k+1
+			strChildLi=strChildLi+"<li onclick=showcnt(this,"+j+","+m+",'second','l')>"+oChildMenu[k]+"</li>";
+			strChildDiv="<div class=submenu><span class=submenubgtop></span><span class=submenumain><ul>"+strChildLi+"</ul></span><span class=submenubgfooter></span></div>";
+		}
+	}
+	else{
+			strChildDiv=""
+	};
+	if(arrLeftMenu.length==5){
+	oDl1.innerHTML=oDl1.innerHTML+"<dd onmouseover=\"this.className=\'myh1 active\'\" onmouseout=\"this.className=\'myh1\'\" class=myh1><a onclick=showcnt(this,"+j+",'0','top','l') style='background-image:url(images/btnl"+j+".png)'>"+arrLeftColumnName[i]+"<\/a>"+strChildDiv+"<\/dd>";
+	}
+	if(arrLeftMenu.length==4){
+	oDl1.innerHTML=oDl1.innerHTML+"<dd onmouseover=\"this.className=\'myh1v8 active\'\" onmouseout=\"this.className=\'myh1v8\'\" class=myh1v8><a onclick=showcnt(this,"+j+",'0','top','l') style='background-image:url(images/btnl"+j+".png)'>"+arrLeftColumnName[i]+"<\/a>"+strChildDiv+"<\/dd>";
+	}
+};
+var arrRightColumnName=new Array();
+var arrRightFileName=new Array();
+for(i=0;i<arrRightMenu.length;i++){
+	var sRightColumnName=arrRightMenu[i].split("-")[0];
+	var sRightFileName=arrRightMenu[i].split("-")[1];
+	arrRightColumnName.push(sRightColumnName);
+	arrRightFileName.push(sRightFileName);
+	}
+for(var i=0;i<arrRightMenu.length;i++){
+	var j=i+1;
+	var oChildMenu=eval("arrRightChildName"+j)
+	if(oChildMenu){
+		var strChildLi="";
+		var strChildDiv=""
+		for(var k=0; k<oChildMenu.length; k++){
+			var m=k+1
+			strChildLi=strChildLi+"<li onclick=showcnt(this,"+j+","+m+",'second','r')>"+oChildMenu[k]+"</li>";
+			strChildDiv="<div class=submenu><span class=submenubgtop></span><span class=submenumain><ul>"+strChildLi+"</ul></span><span class=submenubgfooter></span></div>";
+		}
+	}
+	else{
+			strChildDiv=""
+	};
+	if(arrLeftMenu.length==5){
+	oDl2.innerHTML=oDl2.innerHTML+"<dd onmouseover=\"this.className=\'myh2 active\'\" onmouseout=\"this.className=\'myh2\'\" class=myh2><a onclick=showcnt(this,"+j+",'0','top','r') style='background-image:url(images/btnr"+j+".png)'>"+arrRightColumnName[i]+"<\/a>"+strChildDiv+"<\/dd>";
+	}
+	if(arrLeftMenu.length==4){
+	oDl2.innerHTML=oDl2.innerHTML+"<dd onmouseover=\"this.className=\'myh2v8 active\'\" onmouseout=\"this.className=\'myh2v8\'\" class=myh2v8><a onclick=showcnt(this,"+j+",'0','top','r') style='background-image:url(images/btnr"+j+".png)'>"+arrRightColumnName[i]+"<\/a>"+strChildDiv+"<\/dd>";
+	}
+
+};
+var oA1=oDl1.getElementsByTagName("dd")[0].getElementsByTagName("a")[0];
+var patharea = document.getElementById("showpath");
+var oldFlag=1;
+var oldlorr="l";
+</script>
+
+</body>
+</html>

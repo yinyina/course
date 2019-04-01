@@ -1,0 +1,162 @@
+// JavaScript Document
+window.onload = function a(){
+playvideo("sp01",1);
+showswitchbtn("sp01");
+}
+var CourseCode=""
+var curflag="sp"
+var mp4path 
+var allli = document.getElementsByTagName("li");
+function brighten(t){
+    if (t.id == curflag) return;
+    else bp = document.getElementById("button"+t.id); bp.src="images/button"+t.id+"cur.png";
+}
+
+function darken(t){
+	if (t.id == curflag) return;
+    else bp = document.getElementById("button"+t.id); bp.src="images/button"+t.id+".png";
+}
+
+function show(obj,zid,stype){
+	if(stype!=="3"){
+	var dd = document.getElementsByTagName("dd");
+	var li = document.getElementById(zid.substring(0,2)).getElementsByTagName("li");
+	var patharea = document.getElementById("showpath");
+	var myframe = document.getElementById("myframe");
+	if(zid.length==4){
+		changepic= document.getElementById(zid.substring(0,2)).getElementsByTagName("img")[0];
+		patha=document.getElementById(zid.substring(0,2));
+		patharea.innerHTML = "当前位置："+patha.title +" > "+obj.innerHTML;
+		for(var i=0; i<allli.length;i++){
+				allli[i].style.backgroundImage = 'url(images/level2_bg.png)';
+				}
+		obj.style.backgroundImage = 'url(images/level2cur_bg.png)';
+		switch(patha.id){
+				case "js":case "dg":case "kc":case "lx":case "tl":case "al":case "pp":
+					playswf(zid);
+					break;
+				case "sp":
+					playvideo(zid);
+					showswitchbtn(zid);
+					break;
+				case "tz":
+					choosestype(obj,zid,stype);
+					break;
+				default:
+				}
+		for(var i=0; i<dd.length;i++){
+				dd[i].getElementsByTagName("img")[0].src="images/button"+dd[i].id+".png";
+				}
+		changepic.src="images/"+changepic.id+"cur.png";
+		curflag=document.getElementById(zid.substring(0,2)).id;
+					
+	}
+	if(zid.length==2){
+		if(li.length==0){
+		patharea.innerHTML = "当前位置："+ document.getElementById(zid).title;
+		changepic= document.getElementById(zid).getElementsByTagName("img")[0];
+		for(var i=0; i<dd.length;i++){
+				dd[i].getElementsByTagName("img")[0].src="images/button"+dd[i].id+".png";
+				}
+		for(var i=0; i<allli.length;i++){
+				allli[i].style.backgroundImage = 'url(images/level2_bg.png)';
+				}
+		switch(zid){
+				case "js":case "dg":case "kc":case "lx":case "tl":case "al":case "pp":
+					playswf(zid);
+					break;
+				case "sp":
+					playvideo(zid);
+					showswitchbut(zid);
+					break;
+				case "tz":
+					choosestype(obj,zid,stype);
+					break;
+				default:
+				}
+				
+		changepic.src="images/"+changepic.id+"cur.png";
+		curflag=document.getElementById(zid).id;
+		}
+	}
+	}
+}
+
+function choosestype(obj,zid,stype){
+	switch(stype){
+		case "1":
+			playswf(zid);
+			break;
+		case "2":
+			playvideo(zid);
+			break;
+		default:
+		}
+	}
+var servertype
+servertype = 1 //帝联流媒体服务器
+//servertype = 2 //果实网流媒体服务器
+
+function playvideo(zid,e){
+	//alert (e)
+	alert (zid)
+		alert (e)
+	imgpath = "images/beforevideo";
+	var mmserver = "mms://video.teacheredu.cn/teacheredu/jjc0203a/"; 
+	var gsw = new Array();
+	gsw[0]="a";
+	gsw[1]="b";
+	gsw[2]="c";
+	gsw[3]="d";
+	var StrPath = location.href;
+	if (StrPath.substring(0,4).toUpperCase()=="HTTP"){
+		switch(servertype){
+			case 1:
+			if (e=="1")
+			{
+			mp4path = mmserver + "video/" + zid + "-512";
+			}else
+			{
+			mp4path = mmserver + "video/" + zid + "-256";
+			}
+			alert (mp4path)
+			break;
+			case 2:
+			ord = zid.substring(2,4);
+			ordnum = parseInt(ord,10); 
+			ordnum = ordnum - 1 ;
+			mp4path = gsw[ordnum];
+			break;
+		default:
+			}
+	}
+	else {
+		mp4path = "video/"+CourseCode+zid;
+	}
+	var mstr = "<table><tr><td height=3px></td></tr></table><table width='626' height='377' cellpadding='0' cellspacing='1' bgcolor='#eceaea'>";
+	mstr = mstr + "<tr>";
+	mstr = mstr + "<td bgcolor=#ffffff valign=top><EMBED width=624 height=375 id=objF type=application/x-shockwave-flash src=player.swf flashvars='file="+mp4path+".mp4&amp;type=http&amp;image="+imgpath+".jpg&amp;repeat=list&amp;bufferlength=1&amp;volume=100&amp;autostart=0&amp;controlbar=bottom&amp;displayclick=play&amp;logo.position=top-left' allowfullscreen='true' allowscriptaccess='always' bgcolor='#000000' wmode='transparent'></EMBED></td>";
+	mstr = mstr + "  </tr>";
+	mstr = mstr + "</table>";
+	document.getElementById("videocnt").innerHTML = mstr;
+}
+function showswitchbtn(zid){
+	
+	document.getElementById("switchbut").innerHTML = "<table><tr><td width=566px height=40px></td><td width=30px align=right><a onclick=playvideo('"+zid+"',1) style='font-size:12px;'>高清</a></td><td width=30px align=right><a style='font-size:12px;' onclick=playvideo('"+zid+"',2)>标清</a></td></tr></table>";
+}
+
+function playswf(zid){
+	
+	tpath = "swf/" + zid + ".swf";
+	var ptr = "<table><tr><td height=3px></td></tr></table><table width='626' height='388' cellpadding='0' cellspacing='1' bgcolor='#eceaea'>";
+	ptr = ptr + "<tr>";
+	ptr = ptr + "<td valign=top><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0' width='624' height='388' id='123'  align='middle'><param name='allowScriptAccess' value='always' /><param name='movie' value="+tpath+"><param name='quality' value='high'><param name='wmode' value='transparent' /><param name='wmode' value='opaque'><embed src="+tpath+" name='123' quality='high' allowScriptAccess='always'  swLiveConnect='true' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash'  width='624' height='388' wmode='transparent'></embed></object></td>";
+	ptr = ptr + "  </tr>";
+	ptr = ptr + "</table>";
+	document.getElementById("maincnt").innerHTML = ptr;
+}
+//以下是文字页面代码
+/*function playword(zid){
+	wpath = "word/" + zid + ".htm";
+	document.getElementById("maincnt").innerHTML = "<iframe allowtransparency=true name=myframe id=myframe width=624 height=400 frameborder=0 border=0 scrolling=no src="+wpath+"></iframe>"
+}*/

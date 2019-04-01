@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>培训课程</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/info.js"></script>
+</head>
+<body style="background-color:#2e2e2e;">
+<div class="main">
+<div style="width:940px; height:80px; float:left"><img src="images/series.png" width="940" height="80" /></div>
+<div style="width:940px; height:110px; float:left"><img src="images/title.png" width="940" height="110" /></div>
+<div style="width:248px; height:186px; padding-bottom:42px; padding-right:20px; padding-left:52px; padding-top:12px; float:left; background-image:url(images/zjphoto.png)"><img src="images/kcpic.jpg" width="248" height="186" /></div>
+<div style="width:560px; height:180px; padding:30px; float:left; background-image:url(images/kcjjbg.png); font:'宋体'; color:#FFFFFF; line-height:24px;">
+  
+    <div style="width:100%; float:left; font-size:14px; color:#000000;" id=ydy></div>
+    <script type="text/javascript">
+		document.getElementById("ydy").innerHTML=sYdy;
+	</script>
+</div>
+<div style="width:760px; height:25px; float:left"><img src="images/bg1.png" width="760" height="25" /></div>
+<!--视频暂停与恢复播放js 开始-->
+<div style="width:85px; height:25px; float:left" id="a_course"></div>
+<script type="text/javascript" src="js/func.js"></script>
+<script>
+	if(platformDomain=="teacheredu.cn"){
+		var acourse='<a href="course.htm?domain='+platformDomain+'"><img src="images/startbutton.png" onmouseover="this.src=\'images/startbuttoncur.png\'" onmouseout="this.src=\'images/startbutton.png\'" width="85" height="25" border="0" /></a>';
+	}else{
+		var acourse='<a href="course.htm"><img src="images/startbutton.png" onmouseover="this.src=\'images/startbuttoncur.png\'" onmouseout="this.src=\'images/startbutton.png\'" width="85" height="25" border="0" /></a>';	
+	}
+	
+	document.getElementById("a_course").innerHTML=acourse;
+
+</script>
+<!--视频暂停与恢复播放js 结束-->
+<div style="width:95px;	height:25px; float:left"><img src="images/bg2.png" width="95" height="25" /></div>
+<div style="width:940px; height:145px; float:left"><img src="images/bg3.png" width="940" height="145" /></div>
+</div>
+</body>
+</html>

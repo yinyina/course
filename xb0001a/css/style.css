@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-color:#f0f0f0}
+ul{margin:0; padding:0}
+li{list-style:none;}
+
+/*标题*/
+.bg_title{height:80px; background-color:#257c9c;}
+.title{width:920px; margin:0 auto; height:80px; background-image:url(../images/title_bg.png); color:#FFFFFF; font-family:微软雅黑,宋体; font-size:28px; font-weight:bold; line-height:80px;}
+
+/*视频区*/
+.bg_video{
+	height: 510px;
+	background-image: url(../images/cnt_bg.png);
+}
+.video{
+	width: 920px;
+	height:508px;
+	margin:0 auto;
+	background-color: #FFF;
+}
+.videoplayer{
+	width: 906px;
+	padding:7px;
+	height: 508px;
+	background-color: #FFF;
+	float: left;
+}
+.videolist{
+	width: 906px;
+	padding:7px;
+	background-color: #FFF;
+	float: left;
+}
+
+
+/*细节*/
+.myh1 {
+	width: 906px;
+	float: left;
+	padding: 0px;
+	margin: 0px;
+}
+.myh1 a{
+	width: 906px;
+	height: 36px;
+	font-size: 14px;
+	color: #134455;
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
+	font-family: "宋体";
+	line-height: 36px;
+	overflow: hidden;
+	}
+
+.submenu {
+	width: 906px;
+	float: left;
+}
+.submenu li{
+	width: 270px;
+	height: 32px;
+	float: left;
+	line-height: 32px;
+	cursor: pointer;
+	text-align: left;
+	color: #474644;
+	font-size: 14px;
+	overflow: hidden;
+	font-family: "宋体";
+	font-weight: normal;
+	list-style-type: disc;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e2e2e2;
+	padding-left: 30px;
+}

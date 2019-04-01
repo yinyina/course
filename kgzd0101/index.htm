@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>培训课程</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="js/func.js"></script>
+<script type="text/javascript" src="js/a.js"></script>
+<script type="text/javascript">
+		
+	window.onload = function(){
+	showvideo(1,1);
+}
+	</script>
+<body>
+<div class="bg_title"><div class="title" id="title"></div></div>
+<div class="bg_word">
+	<ul id="wordmenu">
+	
+    </ul>
+</div>
+<div class="bg_main">
+<div class="bg_video">
+	<div class="video">
+    	<div class="l">
+    	<div class="videoplayer" id=videoplayer></div>
+        </div>
+        <div class="videolist"><div class="v_tit">视频学习</div><ul id="videomenu"></ul></div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+document.getElementById("title").innerHTML=sTitle
+var oUl1=document.getElementById("videomenu");
+var oUl2=document.getElementById("wordmenu");
+for(var i=0;i<arrVideoName.length;i++){
+	j=i+1;
+	oUl1.innerHTML+="<li class=myh1 onclick=showvideo('"+j+"','1') title='"+arrVideoName[i]+"'>"+arrVideoName[i]+"<\/li>";
+};
+for(var i=0;i<arrWordName.length;i++){
+	j=i+1;
+	oUl2.innerHTML+="<li onmouseover=bgOver(this,"+j+") onmouseout=bgOut(this,"+j+") onclick=showcnt('"+j+"',this)>"+arrWordName[i]+"<\/li>";
+};
+	var oA1=oUl1.getElementsByTagName("li")[0].getElementsByTagName("a")[0];
+	var oldFlag=1;
+var vLi=oUl1.getElementsByTagName("li");
+var wLi=oUl2.getElementsByTagName("li");
+var oerjixl = oUl2.getElementsByTagName("div");
+
+
+for(i=0; i<wLi.length;i++){
+		
+	wLi[i].index=i;
+	
+	var erjiarrname;
+	var erjiarrnum = wLi[i].index+1
+	erjiarrname = eval("arrerjiName"+erjiarrnum);
+
+	var erjiahtml=''
+	var erjiahtmlnr=''
+	var xialanr =''
+	
+	for(j=0;j<erjiarrname.length;j++){
+
+		this.num=j
+		erjiahtmlnr='<a onclick="erjifun('+erjiarrnum+','+this.num+',this'+')" title="'+ erjiarrname[this.num] +'">'+ erjiarrname[this.num] +'</a>'
+		erjiahtml+=erjiahtmlnr
+		
+		
+		if(erjiahtml){
+				xialanr='<div class="erjixl" id="'+ (wLi[i].index+1) +'">'+erjiahtml+'</div>'
+				
+		}else{
+				xialanr=erjiahtml;
+		}
+
+	}
+	wLi[i].innerHTML+=xialanr
+}
+
+var oaaa=document.getElementsByTagName("a");
+function erjifun(swfa,swfb,obg){
+	var swfname = swfa+'-'+(swfb+1);
+	
+	var arrerjiStypenum = eval("arrerjiStype"+swfa);
+	
+	for(i=0;i<oaaa.length;i++){
+		oaaa[i].style.color="#0364a4"
+		oaaa[i].style.backgroundColor="#ffffff"	
+	}
+	
+	obg.style.color="#ffffff"
+	obg.style.backgroundColor="#0364a4"	
+	
+	//父级当前样式
+	for(var i=0; i<wLi.length; i++){
+		wLi[i].style.backgroundImage="url(images/w_bg.png)";
+		wLi[i].style.color="#151515";
+		wLi[i].onOff="unselect";
+	}
+	
+	wLi[swfa-1].onOff="selected";
+	wLi[swfa-1].style.backgroundImage="url(images/w_cur.png)";
+	wLi[swfa-1].style.color="#ffffff"
+	
+	for(var j=0; j<vLi.length; j++){
+		vLi[j].style.color="#474644";
+	}
+
+
+	if(arrerjiStypenum[swfb]=="swf"){
+		playswf(swfname);
+	}else if(arrerjiStypenum[swfb]=="word"){
+		showword(swfname)
+	}else if(arrerjiStypenum[swfb]=="down"){
+		showdown(swfname)
+		
+	}
+	
+}
+
+//导航滑过
+function bgOver(obg,aIndex){
+	obg.style.backgroundImage="url(images/w_cur.png)";
+	obg.style.color="#ffffff";
+	
+	//点击显示下拉初始化隐藏
+	for(i=0;i<oerjixl.length;i++){
+		oerjixl[i].style.display='none'
+	}
+	
+	var xianshi = document.getElementById(aIndex)
+	if(xianshi){
+		xianshi.style.display='block'
+	}
+}
+
+function bgOut(obg,aIndex){
+	
+	for(i=0;i<oerjixl.length;i++){
+		oerjixl[i].style.display='none'
+	}
+	
+	if(obg.onOff=="unselect"){
+		
+		//点击显示下拉初始化隐藏
+		obg.style.backgroundImage="url(images/w_bg.png)";
+		obg.style.color="#151515";
+	
+	}	
+}
+
+
+</script>
+
+</body>
+</html>

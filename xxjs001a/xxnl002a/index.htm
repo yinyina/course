@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>培训课程</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/func.js"></script>
+<script type="text/javascript" src="js/a.js"></script>
+<body style="margin:0">
+<div class="bg_title"><div class="title" id="title"></div></div>
+<div class="bg_video">
+	<div class="video">
+    	<div class="videoplayer" id=videoplayer></div>
+        <div class="videolist"><dl id="mymenu"></dl></div>
+    </div>
+</div>
+<script type="text/javascript">
+document.getElementById("title").innerHTML=sTitle
+var oDl=document.getElementsByTagName("dl")[0];
+var arrColumnName=new Array();
+var arrFileName=new Array();
+for(i=0;i<arrMyMenu.length;i++){
+	var sColumnName=arrMyMenu[i].split("-")[0];
+	var sFileName=arrMyMenu[i].split("-")[1];
+	arrColumnName.push(sColumnName);
+	arrFileName.push(sFileName);
+	}
+for(var i=0;i<arrMyMenu.length;i++){
+	var j=i+1;
+	var arrMyChildMenu=eval("arrMyChildName"+j)
+	
+	
+	if(arrMyChildMenu){
+		var arrMyCS=eval("arrMyChildStype"+j)
+		var strChildLi="";
+		var strChildDiv="";
+		for(var k=0; k<arrMyChildMenu.length; k++){
+			var m=k+1;
+			if(arrMyCS){sMyS=arrMyCS[k]}else{sMyS=arrStype[i]}
+			strChildLi=strChildLi+"<li style='background-image:url(images/icon"+sMyS+".png)' onclick=showcnt(this,"+j+","+m+",'second') title="+arrMyChildMenu[k]+">"+arrMyChildMenu[k]+"</li>";
+			strChildDiv="<div class=submenu><ul>"+strChildLi+"</ul></div>";
+		}
+	}
+	else{
+			strChildDiv=""
+	};
+	oDl.innerHTML=oDl.innerHTML+"<dd onmouseover=\"this.className=\'myh1 active\'\" onmouseout=\"this.className=\'myh1\'\" class=myh1><a onclick=showcnt(this,"+j+",'0','top') style='background-image:url(images/ct.png)' title='"+arrColumnName[i]+"'>"+arrColumnName[i]+"<\/a>"+strChildDiv+"<\/dd>";
+};
+	var oA1=oDl.getElementsByTagName("dd")[0].getElementsByTagName("a")[0];
+	var oldFlag=1;
+</script>
+<script type="text/javascript">
+var ctime="0";
+function getMyPlayTime(){
+		var a=CKobject.getObjectById('ckplayer_a1').getStatus();
+		/*var ss='';
+		for (var k in a){
+			ss+=k+":"+a[k]+'\n';
+			
+		}
+		alert(ss);*/
+		alert("当前播放时间为："+a.time);
+		ctime=a.time;
+	}
+</script>
+</body>
+</html>

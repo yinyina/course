@@ -1,0 +1,22 @@
+// JavaScript Document
+//课程代码：
+var CourseCode="jjctest"
+
+//一级栏目名称：
+var arrLeftMenu=["视频学习-sp","授课PPT-pp","讨论话题-tl","课后练习-lx“,"专家简介-zj"];
+//一级栏目类型，视频栏目填video,文本栏目填swf
+var arrLeftStype=["video","swf","swf","swf","swf"]
+
+//依次为各个栏目的二级栏目名称数组
+var arrLeftChildName1=["二级视频","二级视频","二级视频"];
+var arrLeftChildName2=["二级文本","二级视频"];
+var arrLeftChildName3=["二级文本","二级文本"];
+var arrLeftChildName4
+var arrLeftChildName5
+
+//如果有同个一级栏目下包含多种文件格式的二级栏目的情况，则填写下面内容。否则不用填写。格式：var arrLeftChildStype1=["swf","video"]
+var arrLeftChildStype1
+var arrLeftChildStype2
+var arrLeftChildStype3
+var arrLeftChildStype4
+var arrLeftChildStype5

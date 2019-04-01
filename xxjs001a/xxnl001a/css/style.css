@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+ul{margin:0; padding:0}
+li{list-style:none;}
+
+/*标题*/
+.bg_title{height:102px; background-color:#f3f1ed;}
+.title{width:980px; padding:0 130px; margin:0 auto; height:102px; background-image:url(../images/bg_title.png); color:#4f4242; font:"微软雅黑, 宋体"; font-size:28px; font-weight:bold; line-height:102px;}
+
+/*视频区*/
+.bg_video{
+	height: 540px;
+	background-color: #dacfbd;
+}
+.video{
+	width: 980px;
+	padding: 40px 130px 0 130px;
+	height: 500px;
+	margin: 0 auto;
+	background-image: url(../images/bg_main.png);
+}
+.videoplayer{
+	width: 708px;
+	height: 398px;
+	background-color: #000000;
+	float: left;
+	position: absolute;
+	z-index: 1;
+}
+.videolist{
+	width: 270px;
+	height: 398px;
+	background-color: #8b5c19;
+	float: right;
+	position: relative;
+}
+
+/*细节*/
+.myh1 {
+	display: block;
+	width: 270px;
+	cursor: pointer;
+	float: left;
+	font-weight: normal;
+	padding: 0px;
+	height: 79px;
+	margin: 0px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #dacfbd;
+}
+
+.myh1 a{
+	width: 210px;
+	height: 79px;
+	font-size: 14px;
+	color: #FFFFFF;
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
+	font-family: "宋体";
+	line-height: 79px;
+	padding-left: 60px;
+	overflow: hidden;
+	}
+
+.submenu {
+	width: 216px;
+	float: left;
+	display: none;
+	background-color: #fffeca;
+	margin: 0px;
+	position: absolute;
+	z-index: 780;
+	right: 270px;
+	padding-top: 10px;
+	padding-right: 18px;
+	padding-bottom: 10px;
+	padding-left: 18px;
+}
+.submenu li{
+	height: 32px;
+	line-height: 32px;
+	cursor: pointer;
+	text-align: left;
+	width: 180px;
+	padding-left: 36px;
+	color: #474644;
+	font-size: 14px;
+	overflow: hidden;
+	font-family: "宋体";
+	font-weight: normal;
+	list-style-type: disc;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-image: url(../images/iconv.png);
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #e2e2e2;
+}
+.videolist dl {
+	margin: 0px;
+	padding: 0px;
+	width: 270px;
+	float: auto;
+	list-style: none;
+}
+.active div {display:block}

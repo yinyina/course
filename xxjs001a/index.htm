@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>培训课程</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/func.js"></script>
+<script type="text/javascript" src="js/a.js"></script>
+<body style="margin:0">
+<div class="bg_title"><div class="title" id="title"></div></div>
+<div class="bg_video">
+	<div class="video">
+    	<div class="videoplayer" id=videoplayer></div>
+        <div class="videolist"><dl id="mymenu"></dl></div>
+    </div>
+</div>
+<script type="text/javascript">
+document.getElementById("title").innerHTML=sTitle
+var oDl=document.getElementsByTagName("dl")[0];
+var arrZtName=new Array();
+var arrLink=new Array();
+for(i=0;i<arrMyYdy.length;i++){
+	var sZtName=arrMyYdy[i].split("-")[0];
+	var sLink=arrMyYdy[i].split("-")[1];
+	arrZtName.push(sZtName);
+	arrLink.push(sLink);
+	}
+for(var i=0;i<arrMyYdy.length;i++){
+	var j=i+1;
+	oDl.innerHTML=oDl.innerHTML+"<dd onmouseover=\"this.className=\'myh1 active\'\" onmouseout=\"this.className=\'myh1\'\" class=myh1><a href='"+arrLink[i]+"/index.htm' style='background-image:url(images/ct.png)' title='"+arrZtName[i]+"'>"+arrZtName[i]+"<\/a><\/dd>";
+};
+</script>
+<script type="text/javascript">
+var ctime="0";
+function getMyPlayTime(){
+		var a=CKobject.getObjectById('ckplayer_a1').getStatus();
+		/*var ss='';
+		for (var k in a){
+			ss+=k+":"+a[k]+'\n';
+			
+		}
+		alert(ss);*/
+		alert("当前播放时间为："+a.time);
+		ctime=a.time;
+	}
+</script>
+</body>
+</html>

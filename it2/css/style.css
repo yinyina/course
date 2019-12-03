@@ -1,0 +1,50 @@
+@charset "utf-8";
+*{ padding:0px; margin:0px; list-style-type:none;}
+html{}
+body{ background:#F7F7F7; font-family:Microsoft YaHei,"微软雅黑","黑体","宋体";}
+.clear_both { clear:both;}
+.clearfix:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+
+/*课程名称*/
+.h1box { height:70px; line-height:70px; background:#00C3C2 url(../img/title.png) no-repeat center top; font-size:26px; color:#fff;}
+.h1box .h1 { width:1000px; margin:0 auto;}
+
+/*显示框*/
+.maincnt { width:1000px; height:470px; margin:0 auto; background:#fff; overflow:hidden;}
+.maincnt #cnt { width:768px; height:432px; margin:20px auto;}
+
+/*课程栏目*/
+.menulist { width:1000px; height:60px; margin:0 auto; background:#00C3C2;}
+.menulist .menuleftlist { float:left;}
+.menulist .menurightlist { float:left; width:888px;}
+.menulist dl { position:relative; float:left;}
+.menulist dl dt { width:88px; height:57px; line-height:57px; cursor:pointer; text-align:center; font-size:16px; color:#fff;}
+.menulist dl dt.active{ color:#00C3C2; background:#ffffff; font-weight:700;}
+.menulist dl dd { display:none; position:absolute; left:0; bottom:57px; width:222px; padding:0 10px; max-height:300px; overflow:hidden; overflow-y:auto; background:#F1F1F1;}
+
+/*视频栏目*/
+.menuvideolist { padding:20px 5px 20px 10px; overflow:hidden;}
+.menuvideolist .yd { padding-left:2px; height:10px; background:url(../img/line.png) repeat-y 4px 0;}
+.menuvideolist ul { overflow:hidden; background:url(../img/line.png) repeat-y 4px 0;}
+.menuvideolist ul li { height:30px; line-height:30px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
+.menuvideolist .level1 { font-size:16px; padding-left:15px; background:url(../img/level1.png) no-repeat 0px 11px;}
+.menuvideolist .level2 { font-size:15px; padding-left:25px; background:url(../img/level2.png) no-repeat 10px 10px;}
+.menuvideolist .level3 { font-size:14px; padding-left:40px; background:url(../img/level3.png) no-repeat 30px 14px; cursor:pointer;}
+.menuvideolist .level3.active { color:#F00; font-weight:700;} 
+
+/*文本栏目*/
+#menurightlist dd { width:68px;}
+.menurightlist p { width:58px; padding:0 0 0 10px; height:30px; line-height:30px; cursor:pointer; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; font-size:14px; background:url(../img/level3.png) no-repeat 0 14px;}
+.menurightlist p.active { color:#F00; font-weight:700;} 
+
+/*验证*/
+.form_title{text-align: center;width: 100%;height: 50px;line-height: 50px;margin-bottom: 25px; font-size: 22px; border-bottom: 1px solid #ccc;}
+.form_login{display: block;width:328px;height:100%;border:1px solid #dadada;background:#ffffff;margin:0 auto; margin-top: 120px;}
+.form_field{margin-top: 20px;overflow: hidden;}
+.form_field label{width:44px;height: 32px;line-height: 32px;text-align: right;margin-right:4px;font-size:14px;color:#545353;display: inline-block;padding-left:32px;}
+.form_btn{padding-left: 32px;padding-top: 10px;}
+.form_field p{display:none;color: red; padding-left: 76px; font-size:10px;/*padding-top: 8px;*/}
+.form_field input,.form_field select{width:214px;height:26px;line-height: 26px;border:1px solid #dbdbdb;padding:2px;font-size: 12px;}
+.form_login .login_btn{float: left;font-size: 16px;cursor:pointer;}
+.form_login .login_btn,.form_login .register{background:#3089ff;border:1px solid #3089ff;margin-right: 4px;width:133px;height:38px;border-radius: 5px;color: #ffffff;margin-bottom: 25px; margin-top: 15px;}
+.form_login .register{background: #faae36;border:1px solid #faae36;}
